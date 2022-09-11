@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import * as React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -8,14 +8,14 @@ const CandidateInfo = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Samantha, 28</Text>
       <Text style={styles.location}>New York, New York</Text>
-      <View style={styles.mediaContainer}>
+      <TouchableOpacity style={styles.mediaContainer}>
         <AntDesign style={styles.icon} name="youtube" size={24} color="red" />
         <Text style={styles.media}>What are asteroids?</Text>
-      </View>
-      <View style={styles.mediaContainer}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.mediaContainer}>
         <AntDesign style={styles.icon} name="youtube" size={24} color="red" />
         <Text style={styles.media}>How to eat sushi</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
