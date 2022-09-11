@@ -2,6 +2,7 @@ import { Text, View, Image, StyleSheet } from "react-native";
 import * as React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
+import { HORIZONTAL_PADDING_1, VERTICAL_PADDING_1 } from "../constants";
 const CandidateInfo = () => {
   return (
     <View style={styles.container}>
@@ -22,8 +23,8 @@ const CandidateInfo = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingTop: VERTICAL_PADDING_1,
+    paddingHorizontal: HORIZONTAL_PADDING_1,
     width: "100%",
   },
   header: {

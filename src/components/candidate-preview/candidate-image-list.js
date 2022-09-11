@@ -19,7 +19,7 @@ const DATA = [
 ];
 const Item = ({ image }) => (
   <Image
-    resizeMode="cover"
+    resizeMode="contain"
     style={styles.image}
     source={{ uri: image }}
   ></Image>
@@ -29,7 +29,7 @@ const CandidateImageList = () => {
   const renderItem = ({ item }) => <Item image={item.image} />;
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -40,9 +40,18 @@ const CandidateImageList = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "black",
+  },
   image: {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height * 0.75,
+    // flex: 1,
+    // height: 1,
+    // width: 1,
   },
 });
 

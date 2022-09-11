@@ -1,6 +1,7 @@
 import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import DecisionButtons from "./decision-buttons";
 import * as React from "react";
-
+//     resizeMode="contain"
 const url =
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80";
 const CandidateImage = ({ navigation }) => {
@@ -11,6 +12,7 @@ const CandidateImage = ({ navigation }) => {
       style={styles.container}
     >
       <Image style={styles.image} source={{ uri: url }} />
+      <DecisionButtons />
     </TouchableOpacity>
   );
 };
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
     height: "70%",
     width: "100%",
     // borderWidth: 1,
-    // borderColor: "black",
+    // borderColor: "red",
   },
   image: {
     // height: "100%",
