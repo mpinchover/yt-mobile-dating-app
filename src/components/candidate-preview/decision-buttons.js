@@ -3,10 +3,11 @@ import { HORIZONTAL_PADDING_1, VERTICAL_PADDING_1 } from "../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { BottomTabBarHeightCallbackContext } from "@react-navigation/bottom-tabs";
 
-const DecisionButtons = () => {
+const DecisionButtons = ({ onHandleNext }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        onPress={() => onHandleNext()}
         style={[
           styles.buttonContainer,
           { borderColor: "green", marginBottom: 20 },
@@ -15,6 +16,7 @@ const DecisionButtons = () => {
         <MaterialCommunityIcons name="check" size={50} color="green" />
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => onHandleNext()}
         style={[styles.buttonContainer, { borderColor: "red" }]}
       >
         <MaterialCommunityIcons name="window-close" size={50} color="red" />

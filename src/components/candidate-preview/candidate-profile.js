@@ -6,10 +6,10 @@ import { Dimensions } from "react-native";
 // import DecisionButtons from "./decision-buttons";
 import { createStackNavigator } from "@react-navigation/stack";
 
-const CandidateProfile = ({ navigation }) => {
+const CandidateProfile = ({ navigation, onHandleNext }) => {
   return (
     <View style={styles.container}>
-      <CandidateImage navigation={navigation} />
+      <CandidateImage onHandleNext={onHandleNext} navigation={navigation} />
       <CandidateInfo />
     </View>
   );
