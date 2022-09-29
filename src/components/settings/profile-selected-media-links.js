@@ -32,6 +32,7 @@ const SelectedMediaLinks = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.label}>Selected videos</Text>
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -48,7 +49,7 @@ export default SelectedMediaLinks;
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: VERTICAL_PADDING_1,
+    marginTop: VERTICAL_PADDING_1,
     paddingHorizontal: HORIZONTAL_PADDING_1,
   },
   linkContainer: {
@@ -66,5 +67,9 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     height: 1,
     width: "100%",
+  },
+  label: {
+    marginBottom: 10,
+    fontSize: 16,
   },
 });

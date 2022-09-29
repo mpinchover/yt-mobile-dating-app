@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 
 import * as React from "react";
+import { useState } from "react";
 import { Text, View, StyleSheet, Settings } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -9,6 +10,14 @@ import ChatsScreen from "./src/screens/chats-screen";
 import SettingsScreen from "./src/screens/settings-screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
+
 // function SettingsScreen() {
 //   return (
 //     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -48,22 +57,32 @@ const handleTabBarIcon = ({ navigation, color, size, route }) => {
 };
 
 export default function App() {
+  useState(() => {
+    // setTodoList((oldState) => {
+    //   console.log("ADDING");
+    //   return [...oldState, { item: "new item" }];
+    // });
+    // console.log("RUNNING USE APP STATE"); // fires just once
+  }, []);
+
   return (
-    <NavigationContainer labeled={false}>
-      <Tab.Navigator
-        screenOptions={(props) => {
-          return {
-            headerShown: false,
-            tabBarIcon: () => handleTabBarIcon(props),
-            tabBarShowLabel: false,
-          };
-        }}
-      >
-        <Tab.Screen name="matching_screen" component={CandidatePreview} />
-        <Tab.Screen name="messages_screen" component={ChatsScreen} />
-        <Tab.Screen name="settings_screen" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <RecoilRoot>
+      <NavigationContainer labeled={false}>
+        <Tab.Navigator
+          screenOptions={(props) => {
+            return {
+              headerShown: false,
+              tabBarIcon: () => handleTabBarIcon(props),
+              tabBarShowLabel: false,
+            };
+          }}
+        >
+          <Tab.Screen name="matching_screen" component={CandidatePreview} />
+          <Tab.Screen name="messages_screen" component={ChatsScreen} />
+          <Tab.Screen name="settings_screen" component={SettingsScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </RecoilRoot>
   );
 }
 
